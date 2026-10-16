@@ -1,59 +1,132 @@
-# FronEnd1
+# Marketplace Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+[![Angular](https://img.shields.io/badge/Angular-19-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Status](https://img.shields.io/badge/status-in%20development-orange)](#project-status)
 
-## Development server
+A modern e-commerce frontend built with Angular and TypeScript. The application provides a responsive storefront for browsing products and categories, account authentication, a persistent shopping cart, checkout, order history, and a dedicated admin workspace.
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- Product catalogue with product detail pages
+- Live search across products, descriptions, and categories
+- Category navigation and category-specific product listings
+- Persistent shopping cart stored in the browser
+- Quantity and stock validation in the cart
+- Checkout and order detail flows
+- User registration, login, and password recovery
+- JWT-based authentication support
+- User profile and order history pages
+- Admin dashboard structure for products, categories, orders, and users
+- Lazy-loaded standalone Angular components
+- Responsive marketplace-style interface
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tech Stack
 
-## Code scaffolding
+- **Angular 19** — application framework
+- **TypeScript 5.7** — strongly typed application code
+- **RxJS** — reactive state and HTTP flows
+- **Angular Router** — navigation and lazy loading
+- **Angular Forms** — form handling and validation
+- **SCSS / CSS** — responsive styling
+- **Local Storage** — cart and authentication persistence
+- **REST API** — communication with the Java backend
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Prerequisites
 
-```bash
-ng generate component component-name
-```
+Before running the project, install:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- [Node.js](https://nodejs.org/) 20 or newer
+- npm
+- A compatible Java backend running on `http://localhost:8080`
 
-```bash
-ng generate --help
-```
+## Getting Started
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Clone the repository:
 
 ```bash
-ng e2e
+git clone git@github.com:GeorgiNyagolovGit/marketplace-frontend.git
+cd marketplace-frontend
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Install the dependencies:
 
-## Additional Resources
+```bash
+npm install
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Start the development server:
+
+```bash
+npm start
+```
+
+Open [http://localhost:4200](http://localhost:4200) in your browser. The application reloads automatically when source files change.
+
+## Backend Connection
+
+During local development, requests beginning with `/api` are proxied to:
+
+```text
+http://127.0.0.1:8080
+```
+
+The proxy is configured in [`proxy.conf.json`](proxy.conf.json). Authentication and order services currently also expect the backend at `http://localhost:8080`.
+
+The frontend expects REST endpoints for:
+
+```text
+/api/auth
+/api/products
+/api/categories
+/api/orders
+/api/cart
+/api/admin
+```
+
+Make sure the Java backend is running before testing API-dependent features.
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm start` | Starts the Angular development server |
+| `npm run build` | Creates an optimized production build |
+| `npm run watch` | Rebuilds automatically in development mode |
+| `npm test` | Runs the Karma/Jasmine test suite |
+
+## Project Structure
+
+```text
+src/app/
+├── admin/       # Admin dashboard and management pages
+├── auth/        # Login, registration, and password recovery
+├── cart/        # Cart state, components, and cart page
+├── category/    # Category navigation and listings
+├── core/        # Guards, interceptors, and core services
+├── layout/      # Main and admin layouts
+├── order/       # Checkout, order history, and order details
+├── product/     # Product catalogue, filters, and details
+├── shared/      # Reusable components and shared models
+└── user/        # User profile functionality
+```
+
+Each feature is organized into its own components, pages, models, and services to keep the codebase maintainable as the application grows.
+
+## Production Build
+
+Create a production build with:
+
+```bash
+npm run build
+```
+
+The compiled application is written to `dist/fron-end1/`.
+
+## Project Status
+
+This project is under active development. The storefront, authentication flow, cart, and order flow are implemented, while some admin pages are prepared for further backend integration.
+
+## Author
+
+Developed by [Georgi Nyagolov](https://github.com/GeorgiNyagolovGit).
