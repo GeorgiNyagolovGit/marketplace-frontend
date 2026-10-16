@@ -1,0 +1,47 @@
+<article class="product-card">
+  <div class="badges">
+    <span>New</span>
+  </div>
+
+  <a class="product-media" [routerLink]="['/products', product.id]">
+    @if (product.imageUrl) {
+      <img
+        [src]="product.imageUrl"
+        [alt]="product.name"
+        width="200"
+      >
+    } @else {
+      <div class="image-placeholder" aria-hidden="true">M</div>
+    }
+  </a>
+
+  <div class="product-body">
+    <p class="product-brand">{{ product.category?.name || 'MARKETPLACE' }}</p>
+    <a class="product-title" [routerLink]="['/products', product.id]">
+      <h3>{{ product.name }}</h3>
+    </a>
+    <p class="product-description">{{ product.description }}</p>
+
+    <div class="stock-row">
+    @if (product.stock > 0) {
+        <span class="stock-dot"></span> In stock
+    } @else {
+        <span class="stock-dot unavailable"></span> Out of stock
+    }
+    </div>
+
+    <div class="price-row">
+      <strong>{{ product.price | currency:'EUR' }}</strong>
+      <small>{{ product.price * 1.95583 | number:'1.2-2' }} BGN</small>
+    </div>
+
+    <button
+      type="button"
+      (click)="addToCart()"
+      [disabled]="product.stock <= 0"
+    >
+      <span aria-hidden="true">🛒</span>
+      {{ product.stock > 0 ? 'Add to cart' : 'Out of stock' }}
+    </button>
+  </div>
+</article>

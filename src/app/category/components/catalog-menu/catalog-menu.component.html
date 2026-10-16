@@ -1,0 +1,62 @@
+<button
+  class="catalog-trigger"
+  type="button"
+  (click)="toggle()"
+  aria-haspopup="menu"
+  [attr.aria-expanded]="isOpen"
+>
+  <span aria-hidden="true">☰</span>
+  All categories
+  <span class="catalog-trigger__arrow" aria-hidden="true">⌄</span>
+</button>
+
+@if (isOpen) {
+  <div class="catalog-menu" role="menu">
+    <section class="catalog-menu__categories">
+      <div class="catalog-menu__heading">
+        <strong>Categories</strong>
+        <a routerLink="/categories" (click)="close()">View all</a>
+      </div>
+      <div class="category-links">
+        @for (category of categories; track category.id) {
+          <a
+            [class.active]="activeCategory?.id === category.id"
+            [routerLink]="['/categories', category.id]"
+            (mouseenter)="selectCategory(category.id)"
+            (focus)="selectCategory(category.id)"
+            (click)="close()"
+          >
+            <span>{{ category.name }}</span>
+            <b aria-hidden="true">›</b>
+          </a>
+        } @empty {
+          <p>No categories available.</p>
+        }
+      </div>
+    </section>
+
+    <section class="catalog-menu__products">
+      <div class="catalog-menu__heading">
+        <strong>{{ activeCategory?.name || 'Products' }}</strong>
+        @if (activeCategory; as category) {
+          <a [routerLink]="['/categories', category.id]" (click)="close()">
+            View category
+          </a>
+        }
+      </div>
+      <div class="product-links">
+        @for (product of activeCategoryProducts; track product.id) {
+          <a [routerLink]="['/products', product.id]" (click)="close()">
+            <span>
+              <strong>{{ product.name }}</strong>
+              <small>{{ product.category?.name || 'Uncategorised' }}</small>
+            </span>
+            <b>{{ product.price | number:'1.2-2' }} €</b>
+          </a>
+        } @empty {
+          <p>No products available in this category.</p>
+        }
+      </div>
+    </section>
+  </div>
+}

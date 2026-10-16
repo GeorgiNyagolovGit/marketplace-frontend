@@ -1,0 +1,58 @@
+<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate>
+  <div>
+    <label for="firstName">First name</label>
+    <input
+      id="firstName"
+      type="text"
+      name="firstName"
+      [(ngModel)]="firstName"
+      required
+    >
+  </div>
+
+  <div>
+    <label for="lastName">Last name</label>
+    <input
+      id="lastName"
+      type="text"
+      name="lastName"
+      [(ngModel)]="lastName"
+      required
+    >
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      name="email"
+      [(ngModel)]="email"
+      required
+      email
+    >
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input
+      id="password"
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      #passwordModel="ngModel"
+      required
+      minlength="8"
+      [attr.aria-invalid]="passwordModel.invalid && passwordModel.dirty"
+      aria-describedby="password-error"
+    >
+
+    @if (passwordModel.dirty && passwordModel.errors?.['minlength']) {
+      <p id="password-error" class="field-error" role="alert">
+        Password must be at least 8 characters.
+      </p>
+    }
+  </div>
+
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+</form>

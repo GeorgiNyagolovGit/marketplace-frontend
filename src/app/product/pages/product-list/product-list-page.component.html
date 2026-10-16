@@ -1,0 +1,44 @@
+<main class="products-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">MARKETPLACE</p>
+      <h1>Online Store</h1>
+      <p class="page-description">
+        Technology, peripherals and electronics in one place.
+      </p>
+    </div>
+
+    @if (!loading && !errorMessage) {
+      <p class="product-count">
+        {{ filteredProducts.length }}
+        {{ filteredProducts.length === 1 ? 'product' : 'products' }}
+      </p>
+    }
+  </header>
+
+  @if (loading) {
+    <div class="state-message">
+      <p>Loading products...</p>
+    </div>
+  }
+
+  @if (errorMessage && !loading) {
+    <div class="state-message error">
+      <p>{{ errorMessage }}</p>
+      <button type="button" (click)="loadProducts()">
+        Try again
+      </button>
+    </div>
+  }
+
+  @if (!loading && !errorMessage) {
+    @if (filteredProducts.length > 0) {
+      <app-product-list [products]="filteredProducts" />
+    } @else {
+      <div class="empty-state">
+        <h2>No products found</h2>
+        <p>Try changing your search or selected filters.</p>
+      </div>
+    }
+  }
+</main>

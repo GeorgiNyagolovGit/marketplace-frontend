@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()">
+  <h2>Delivery Information</h2>
+
+  <label for="shippingAddress">Shipping Address</label>
+  <textarea
+    id="shippingAddress"
+    name="shippingAddress"
+    [(ngModel)]="shippingAddress"
+    required
+    rows="3"
+  ></textarea>
+
+  <label for="phone">Phone Number</label>
+  <input
+    id="phone"
+    type="tel"
+    name="phone"
+    [(ngModel)]="phone"
+    required
+  />
+
+  <button type="submit">Place Order</button>
+</form>

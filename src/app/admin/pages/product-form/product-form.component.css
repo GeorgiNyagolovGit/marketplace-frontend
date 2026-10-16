@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+.workspace-page {
+  max-width: 880px;
+}
+
+.workspace-page__header {
+  position: relative;
+  padding: clamp(30px, 7vw, 64px);
+  border: 1px solid #ddd6fe;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #fff 0%, #f5f3ff 100%);
+  box-shadow: 0 28px 70px rgb(76 29 149 / 11%);
+}
+
+.workspace-page__header::before {
+  content: "✦";
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 24px;
+  place-items: center;
+  border-radius: 15px;
+  background: #ede9fe;
+  color: #6d28d9;
+  font-size: 1.4rem;
+}
+
+.workspace-action {
+  border: 1px solid #c7d2fe;
+  background: #fff;
+  color: #4338ca;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.workspace-action:hover {
+  background: #eef2ff;
+  transform: translateX(-3px);
+}

@@ -1,0 +1,25 @@
+<section>
+  <h1>Checkout</h1>
+
+  <div class="summary">
+    <h2>Order Summary</h2>
+    <p>Total: {{ totalPrice | currency }}</p>
+  </div>
+
+  @if (totalPrice > 0) {
+    <app-checkout-form
+      (submitOrder)="placeOrder($event)"
+    />
+
+    @if (loading) {
+      <p>Placing your order...</p>
+    }
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+  } @else {
+    <p>Your cart is empty.</p>
+    <a routerLink="/products">Continue Shopping</a>
+  }
+</section>

@@ -1,0 +1,9 @@
+<div class="order-item">
+  <div>
+    <h3>{{ item.productName }}</h3>
+    <p>Quantity: {{ item.quantity }}</p>
+    <p>Price: {{ item.price | currency }}</p>
+  </div>
+
+  <strong>{{ item.subtotal | currency }}</strong>
+</div>

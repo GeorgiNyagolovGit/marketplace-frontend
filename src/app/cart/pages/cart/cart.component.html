@@ -1,0 +1,57 @@
+<section class="cart-page">
+  <header class="cart-header">
+    <h1>Shopping Cart</h1>
+    <p>{{ totalItems }} items</p>
+  </header>
+
+  @if (items.length === 0) {
+    <div class="empty-cart">
+      <h2>Your cart is empty</h2>
+      <p>Add products to your cart to get started.</p>
+
+      <a routerLink="/products">Continue Shopping</a>
+    </div>
+  } @else {
+    <div class="cart-layout">
+      <div class="cart-items">
+        @for (item of items; track item.product.id) {
+          <app-cart-item
+            [item]="item"
+            (quantityChange)="updateQuantity($event)"
+            (remove)="removeItem($event)"
+          />
+        }
+
+        <button
+          type="button"
+          class="clear-cart-button"
+          (click)="clearCart()"
+        >
+          Clear Cart
+        </button>
+      </div>
+
+      <aside class="cart-summary">
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Items</span>
+          <span>{{ totalItems }}</span>
+        </div>
+
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <strong>{{ totalPrice | currency:'EUR' }}</strong>
+        </div>
+
+        <a class="checkout-button" routerLink="/checkout">
+          Proceed to Checkout
+        </a>
+
+        <a class="continue-link" routerLink="/products">
+          Continue Shopping
+        </a>
+      </aside>
+    </div>
+  }
+</section>

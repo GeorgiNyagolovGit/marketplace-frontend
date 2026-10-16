@@ -1,0 +1,44 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+input {
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+}
+
+input[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+.field-error {
+  margin: 0;
+  color: #dc2626;
+  font-size: 0.875rem;
+}
+
+button {
+  min-height: 48px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #f26a21;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #d95512;
+}

@@ -1,1 +1,148 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #252a30;
+  background: #f5f6f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #f5f6f7;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgb(242 106 33 / 35%);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #ffd7bf;
+  color: #5b2407;
+}
+
+.workspace-page {
+  width: min(100% - 40px, 1120px);
+  margin-inline: auto;
+  padding-block: clamp(36px, 7vw, 72px);
+}
+
+.workspace-page__header {
+  margin-bottom: 28px;
+}
+
+.workspace-page__eyebrow {
+  margin: 0 0 8px;
+  color: #4f46e5;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.workspace-page h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.045em;
+}
+
+.workspace-page__lead {
+  max-width: 620px;
+  margin: 12px 0 0;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.workspace-card {
+  display: block;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 82%);
+  color: #0f172a;
+  box-shadow: 0 12px 32px rgb(15 23 42 / 6%);
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.workspace-card:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 18px 40px rgb(79 70 229 / 12%);
+  transform: translateY(-3px);
+}
+
+.workspace-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.workspace-card p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+.workspace-action {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #f26a21;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

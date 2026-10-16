@@ -1,0 +1,87 @@
+:host {
+  display: block;
+}
+
+.workspace-page {
+  position: relative;
+}
+
+.workspace-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 24px;
+  right: 4%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(99 102 241 / 18%), transparent 68%);
+  filter: blur(4px);
+}
+
+.workspace-page__header {
+  max-width: 760px;
+  padding: clamp(24px, 5vw, 44px);
+  border: 1px solid rgb(199 210 254 / 75%);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgb(255 255 255 / 96%), rgb(238 242 255 / 88%));
+  box-shadow: 0 24px 60px rgb(49 46 129 / 10%);
+}
+
+.workspace-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.workspace-card {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  padding-top: 76px;
+}
+
+.workspace-card::before {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.workspace-card:nth-child(1)::before { content: "P"; }
+.workspace-card:nth-child(2)::before { content: "C"; }
+.workspace-card:nth-child(3)::before { content: "O"; }
+.workspace-card:nth-child(4)::before { content: "U"; }
+
+.workspace-card::after {
+  content: "→";
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  color: #a5b4fc;
+  font-size: 1.25rem;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.workspace-card:hover::after {
+  color: #4f46e5;
+  transform: translateX(4px);
+}
+
+@media (max-width: 960px) {
+  .workspace-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}

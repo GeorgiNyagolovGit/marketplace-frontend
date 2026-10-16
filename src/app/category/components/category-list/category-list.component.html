@@ -1,0 +1,31 @@
+<section>
+  <h2>Categories</h2>
+
+  @if (loading) {
+    <p>Loading categories...</p>
+  }
+
+  @if (errorMessage) {
+    <p>{{ errorMessage }}</p>
+  }
+
+  @if (!loading && !errorMessage) {
+    @if (categories.length > 0) {
+      <ul>
+        @for (category of categories; track category.id) {
+          <li>
+            <a [routerLink]="['/categories', category.id]">
+              {{ category.name }}
+            </a>
+
+            @if (category.description) {
+              <p>{{ category.description }}</p>
+            }
+          </li>
+        }
+      </ul>
+    } @else {
+      <p>No categories found.</p>
+    }
+  }
+</section>

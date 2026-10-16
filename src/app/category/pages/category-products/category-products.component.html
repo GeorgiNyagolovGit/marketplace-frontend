@@ -1,0 +1,21 @@
+<section>
+  @if (category) {
+    <h1>{{ category.name }}</h1>
+
+    @if (category.description) {
+      <p>{{ category.description }}</p>
+    }
+  }
+
+  @if (loading) {
+    <p>Loading products...</p>
+  }
+
+  @if (errorMessage) {
+    <p>{{ errorMessage }}</p>
+  }
+
+  @if (!loading && !errorMessage) {
+    <app-product-list [products]="products" />
+  }
+</section>

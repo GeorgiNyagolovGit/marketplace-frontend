@@ -1,0 +1,20 @@
+<section>
+  <h1>Create account</h1>
+
+  @if (errorMessage) {
+    <p>{{ errorMessage }}</p>
+  }
+
+  @if (loading) {
+    <p>Creating account...</p>
+  }
+
+  <app-register-form
+    (submitForm)="onRegister($event)"
+  ></app-register-form>
+
+  <p>
+    Already have an account?
+    <a routerLink="/login">Login</a>
+  </p>
+</section>

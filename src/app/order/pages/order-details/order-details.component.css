@@ -1,0 +1,14 @@
+section {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  margin-bottom: 16px;
+}
+
+p {
+  margin: 10px 0;
+}

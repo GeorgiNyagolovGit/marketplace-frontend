@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.workspace-page__header {
+  padding: clamp(26px, 5vw, 44px);
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 96%), rgb(240 249 255 / 92%)),
+    #fff;
+  box-shadow: 0 22px 55px rgb(3 105 161 / 9%);
+}
+
+.workspace-page__eyebrow {
+  color: #0369a1;
+}
+
+.workspace-action {
+  background: #f26a21;
+  box-shadow: 0 10px 22px rgb(242 106 33 / 20%);
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.workspace-action:hover {
+  background: #d95512;
+  transform: translateY(-2px);
+}
+
+.workspace-card {
+  position: relative;
+  max-width: 560px;
+  min-height: 140px;
+  padding-left: 82px;
+}
+
+.workspace-card::before {
+  content: "C";
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 11px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 800;
+}
+
+@media (max-width: 520px) {
+  .workspace-card {
+    padding: 76px 22px 22px;
+  }
+}

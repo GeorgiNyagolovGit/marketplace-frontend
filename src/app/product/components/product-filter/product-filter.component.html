@@ -1,0 +1,27 @@
+<form (ngSubmit)="applyFilters()">
+  <div>
+    <label for="keyword">Search this category</label>
+    <input
+      id="keyword"
+      type="text"
+      name="keyword"
+      [(ngModel)]="keyword"
+      placeholder="Product name..."
+    >
+  </div>
+
+  <div>
+    <label for="categoryId">Category ID</label>
+    <input
+      id="categoryId"
+      type="number"
+      name="categoryId"
+      [(ngModel)]="categoryId"
+      min="1"
+      placeholder="Enter category ID"
+    >
+  </div>
+
+  <button type="submit">Search</button>
+  <button type="button" (click)="resetFilters()">Clear</button>
+</form>

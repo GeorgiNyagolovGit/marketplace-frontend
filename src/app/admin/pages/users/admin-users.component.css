@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.workspace-page {
+  max-width: 900px;
+}
+
+.workspace-page__header {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(30px, 7vw, 58px);
+  border: 1px solid #fed7aa;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #fff, #fff7ed);
+  box-shadow: 0 26px 65px rgb(194 65 12 / 9%);
+}
+
+.workspace-page__header::after {
+  content: "•••";
+  position: absolute;
+  right: clamp(24px, 7vw, 70px);
+  bottom: 12px;
+  color: rgb(234 88 12 / 12%);
+  font-size: 6rem;
+  font-weight: 800;
+  letter-spacing: -0.18em;
+}
+
+.workspace-page__eyebrow {
+  color: #c2410c;
+}
+
+.workspace-action {
+  position: relative;
+  z-index: 1;
+  background: #c2410c;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.workspace-action:hover {
+  background: #9a3412;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 560px) {
+  .workspace-page__header::after {
+    display: none;
+  }
+}

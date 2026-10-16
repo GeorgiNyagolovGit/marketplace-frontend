@@ -1,0 +1,24 @@
+<section>
+  <a routerLink="/my-orders">Back to My Orders</a>
+
+  @if (loading) {
+    <p>Loading order...</p>
+  } @else if (errorMessage) {
+    <p>{{ errorMessage }}</p>
+  } @else if (order) {
+    <h1>Order #{{ order.id }}</h1>
+
+    <p>Status: {{ order.status }}</p>
+    <p>Date: {{ order.createdAt | date }}</p>
+    <p>Shipping Address: {{ order.shippingAddress }}</p>
+    <p>Phone: {{ order.phone }}</p>
+
+    <h2>Products</h2>
+
+    @for (item of order.items; track item.id) {
+      <app-order-item [item]="item" />
+    }
+
+    <h2>Total: {{ order.totalPrice | currency }}</h2>
+  }
+</section>

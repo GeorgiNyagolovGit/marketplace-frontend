@@ -1,0 +1,149 @@
+:host {
+  display: block;
+}
+
+.cart-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.cart-header h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 32px;
+}
+
+.cart-header p {
+  color: #6b7280;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: 28px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cart-summary {
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.cart-summary h2 {
+  margin: 0 0 24px;
+  color: #111827;
+  font-size: 21px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 0;
+  color: #4b5563;
+}
+
+.total-row {
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  color: #111827;
+}
+
+.total-row strong {
+  font-size: 20px;
+}
+
+.checkout-button,
+.continue-link,
+.empty-cart a {
+  display: block;
+  padding: 13px 16px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.checkout-button {
+  margin-top: 24px;
+  background: #f26a21;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.checkout-button:hover {
+  background: #d95512;
+}
+
+.continue-link {
+  margin-top: 10px;
+  color: #374151;
+}
+
+.clear-cart-button {
+  align-self: flex-start;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+}
+
+.empty-cart {
+  padding: 60px 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.empty-cart h2 {
+  color: #111827;
+}
+
+.empty-cart p {
+  margin-bottom: 24px;
+  color: #6b7280;
+}
+
+.empty-cart a {
+  display: inline-block;
+  background: #f26a21;
+  color: #ffffff;
+}
+
+@media (max-width: 800px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart-page {
+    padding: 24px 16px;
+  }
+
+  .cart-header h1 {
+    font-size: 26px;
+  }
+}

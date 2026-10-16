@@ -1,0 +1,13 @@
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+h3,
+p {
+  margin: 5px 0;
+}

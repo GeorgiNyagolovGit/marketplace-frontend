@@ -1,0 +1,62 @@
+<article class="cart-item">
+  <div class="cart-item-image">
+    @if (item.product.imageUrl) {
+      <img
+        [src]="item.product.imageUrl"
+        [alt]="item.product.name"
+      />
+    } @else {
+      <div class="image-placeholder">No image</div>
+    }
+  </div>
+
+  <div class="cart-item-details">
+    <h3>{{ item.product.name }}</h3>
+
+    <p class="cart-item-price">
+      {{ item.product.price | currency:'EUR' }}
+    </p>
+
+    <div class="quantity-controls">
+      <button
+        type="button"
+        (click)="decreaseQuantity()"
+        [disabled]="item.quantity <= 1"
+        aria-label="Decrease quantity"
+      >
+        −
+      </button>
+
+      <input
+        type="number"
+        min="1"
+        [max]="item.product.stock"
+        [value]="item.quantity"
+        (change)="onQuantityChange($event)"
+        [attr.aria-label]="'Quantity for ' + item.product.name"
+      />
+
+      <button
+        type="button"
+        (click)="increaseQuantity()"
+        [disabled]="item.quantity >= item.product.stock"
+        aria-label="Increase quantity"
+      >
+        +
+      </button>
+    </div>
+
+    <p>
+      Subtotal:
+      {{ item.product.price * item.quantity | currency:'EUR' }}
+    </p>
+  </div>
+
+  <button
+    type="button"
+    class="remove-button"
+    (click)="removeItem()"
+  >
+    Remove
+  </button>
+</article>

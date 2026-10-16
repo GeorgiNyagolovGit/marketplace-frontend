@@ -1,0 +1,231 @@
+:host {
+  /* Design tokens can be overridden by a parent component. */
+  --form-bg: #ffffff;
+  --form-border: #e5e7eb;
+  --form-radius: 3px;
+  --form-control-radius: 3px;
+  --form-text: #111827;
+  --form-label: #374151;
+  --form-muted: #9ca3af;
+  --form-input-bg: #ffffff;
+  --form-input-border: #d1d5db;
+  --form-input-border-hover: #9ca3af;
+  --form-accent: #f26a21;
+  --form-accent-hover: #dc5914;
+  --form-accent-active: #c84c0d;
+  --form-accent-ring: rgba(242, 106, 33, 0.18);
+  --form-secondary-hover: #f3f4f6;
+  --form-secondary-active: #e5e7eb;
+  --form-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --form-space: 16px;
+  --form-control-height: 44px;
+  --form-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  display: block;
+  width: 100%;
+  min-width: 0;
+  container-type: inline-size;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--form-space);
+  margin-bottom: 28px;
+  padding: 16px;
+  border: 1px solid var(--form-border);
+  border-radius: var(--form-radius);
+  background: var(--form-bg);
+  box-shadow: 0 4px 14px rgb(23 28 33 / 6%);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+form > div {
+  display: flex;
+  flex: 1 1 180px;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+label {
+  color: var(--form-label);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+input {
+  width: 100%;
+  min-height: var(--form-control-height);
+  padding: 10px 12px;
+  border: 1px solid var(--form-input-border);
+  border-radius: var(--form-control-radius);
+  outline: none;
+  background: var(--form-input-bg);
+  color: var(--form-text);
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  transition:
+    border-color 0.2s var(--form-ease),
+    box-shadow 0.2s var(--form-ease),
+    background-color 0.2s var(--form-ease);
+}
+
+input::placeholder {
+  color: var(--form-muted);
+  opacity: 1;
+}
+
+input:hover:not(:disabled):not(:focus) {
+  border-color: var(--form-input-border-hover);
+}
+
+input:focus {
+  border-color: var(--form-accent);
+  box-shadow: 0 0 0 4px var(--form-accent-ring);
+}
+
+input:disabled {
+  background: var(--form-secondary-hover);
+  color: var(--form-muted);
+  cursor: not-allowed;
+}
+
+/* Invalid state after the user has entered a value. */
+input:user-invalid,
+input[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+input:user-invalid:focus,
+input[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15);
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--form-control-height);
+  padding: 10px 20px;
+  border: 1px solid var(--form-accent);
+  border-radius: var(--form-control-radius);
+  background: var(--form-accent);
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 0.2s var(--form-ease),
+    border-color 0.2s var(--form-ease),
+    box-shadow 0.2s var(--form-ease),
+    transform 0.1s var(--form-ease);
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--form-accent-hover);
+  background: var(--form-accent-hover);
+}
+
+button:active:not(:disabled) {
+  border-color: var(--form-accent-active);
+  background: var(--form-accent-active);
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--form-accent-ring);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Secondary action button. */
+button[type="button"] {
+  border-color: var(--form-input-border);
+  background: var(--form-bg);
+  color: var(--form-label);
+}
+
+button[type="button"]:hover:not(:disabled) {
+  border-color: var(--form-input-border-hover);
+  background: var(--form-secondary-hover);
+}
+
+button[type="button"]:active:not(:disabled) {
+  background: var(--form-secondary-active);
+}
+
+/* Adapt to the component's own width. */
+@container (max-width: 600px) {
+  form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding: 16px;
+  }
+
+  form > div {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    min-height: 46px;
+  }
+}
+
+/* Fallback for browsers without container queries. */
+@supports not (container-type: inline-size) {
+  @media (max-width: 600px) {
+    form {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding: 16px;
+    }
+
+    form > div {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+      min-height: 46px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  input,
+  button {
+    transition: none;
+  }
+
+  button:active:not(:disabled) {
+    transform: none;
+  }
+}

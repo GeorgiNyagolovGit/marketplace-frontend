@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+.workspace-page {
+  max-width: 880px;
+}
+
+.workspace-page__header {
+  position: relative;
+  padding: clamp(30px, 7vw, 64px);
+  border: 1px solid #bae6fd;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #fff 0%, #f0f9ff 100%);
+  box-shadow: 0 28px 70px rgb(3 105 161 / 10%);
+}
+
+.workspace-page__header::before {
+  content: "#";
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 24px;
+  place-items: center;
+  border-radius: 15px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.workspace-page__eyebrow {
+  color: #0369a1;
+}
+
+.workspace-action {
+  border: 1px solid #bae6fd;
+  background: #fff;
+  color: #0369a1;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.workspace-action:hover {
+  background: #e0f2fe;
+  transform: translateX(-3px);
+}
