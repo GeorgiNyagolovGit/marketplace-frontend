@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-reset-password',
@@ -39,7 +40,7 @@ export class ResetPasswordComponent {
     this.message = '';
 
     this.http.post(
-      'http://localhost:8080/api/auth/reset-password',
+      `${environment.apiUrl}/auth/reset-password`,
       {
         token: this.token,
         email: this.email,

@@ -4,10 +4,11 @@ import { Observable, of, tap } from 'rxjs';
 import { LoginRequest } from '../models/login-request.model';
 import { RegisterRequest } from '../models/register-request.model';
 import { AuthResponse } from '../models/auth-response.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly apiUrl = 'http://localhost:8080/api/auth';
+  private readonly apiUrl = `${environment.apiUrl}/auth`;
   private readonly storageKey = 'marketplace_user';
   private currentUser: AuthResponse | null = this.readStoredUser();
 

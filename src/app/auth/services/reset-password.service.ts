@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 export interface ResetPasswordRequest {
   token: string;
@@ -11,7 +12,7 @@ export interface ResetPasswordRequest {
 
 @Injectable({ providedIn: 'root' })
 export class ResetPasswordService {
-  private readonly apiUrl = 'http://localhost:8080/api/auth/reset-password';
+  private readonly apiUrl = `${environment.apiUrl}/auth/reset-password`;
 
   constructor(private http: HttpClient) {}
 
