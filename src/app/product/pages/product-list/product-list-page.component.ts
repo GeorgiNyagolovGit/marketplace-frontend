@@ -42,7 +42,7 @@ export class ProductListPageComponent implements OnInit {
         this.loading = false;
       },
       error: () => {
-        this.errorMessage = 'Unable to load products. Make sure the Java backend is running on port 8080.';
+        this.errorMessage = 'Unable to load products. Please try again in a moment.';
         this.loading = false;
       }
     });

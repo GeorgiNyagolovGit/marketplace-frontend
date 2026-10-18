@@ -38,7 +38,7 @@ Before running the project, install:
 
 - [Node.js](https://nodejs.org/) 20 or newer
 - npm
-- A compatible Java backend running on `http://localhost:8080`
+- Access to the hosted Java backend
 
 ## Getting Started
 
@@ -65,13 +65,13 @@ Open [http://localhost:4200](http://localhost:4200) in your browser. The applica
 
 ## Backend Connection
 
-During local development, requests beginning with `/api` are proxied to:
+During local frontend development, requests to `/api` are proxied to the hosted backend:
 
 ```text
-http://127.0.0.1:8080
+https://ecommerce-backend-sn99.onrender.com
 ```
 
-The proxy is configured in [`proxy.conf.json`](proxy.conf.json). Authentication and order services currently also expect the backend at `http://localhost:8080`.
+The proxy is configured in [`proxy.conf.json`](proxy.conf.json). Production builds use the same hosted API URL configured in `src/environments/environment.ts`.
 
 The frontend expects REST endpoints for:
 
@@ -84,7 +84,7 @@ The frontend expects REST endpoints for:
 /api/admin
 ```
 
-Make sure the Java backend is running before testing API-dependent features.
+The first request can take longer while the hosted backend wakes up.
 
 ## Available Scripts
 
